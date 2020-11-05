@@ -26,7 +26,7 @@ namespace CleanGreenFieldsProject
                 int cardIndex = Convert.ToInt32(Console.ReadLine());
                 if (cardIndex <= myCards.Count && cardIndex > 0)
                 {
-                    result = playingCard.GetWinResult(myCards[cardIndex]);
+                    result = playingCard.GetWinResult(myCards[cardIndex-1]);
                     myCards.RemoveAt(cardIndex - 1);
                 }
             } while (result);

@@ -9,6 +9,8 @@ namespace CleanGreenFieldsProject
   public class PlayingCard
     {
         private List<Card> _Deck;
+        private List<Card> _CompCards;
+        int _cardPick = 3;
         public PlayingCard()
         {
             _Deck = new List<Card>();
