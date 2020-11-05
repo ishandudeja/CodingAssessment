@@ -72,7 +72,7 @@ namespace CodingAssessment.Review
         /*simplify the function and get BOB older then 30
           * DateTime.Now.Subtract does not give accurate result so use AddYears 
           */
-        private IEnumerable<People> GetBobs(bool olderThan30)
+        public IEnumerable<People> GetBobs(bool olderThan30)
         {
             var query = _people.Where(x => x.Name == "Bob");
             if (olderThan30)/* DateTime.Now.Subtract do not provide accurate result*/

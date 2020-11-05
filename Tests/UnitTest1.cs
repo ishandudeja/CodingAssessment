@@ -26,5 +26,22 @@ namespace Tests
             Assert.Equal("Bob Trump", fullName);
 
         }
+        [Fact]
+        public void TestIsGetBobOlderThen30()
+        {
+            BirthingUnit birthingUnit = new BirthingUnit();
+            var people = birthingUnit.GetPeople(5);
+            var bobMan = birthingUnit.GetBobs(true);
+            bool isBobOlderThen30 = true;
+            foreach (People bob in bobMan)
+            {
+                int age = DateTime.Now.Year - bob.DOB.Year;
+                if (age < 30)
+                { isBobOlderThen30 = false; }
+            }
+
+            Assert.True(isBobOlderThen30);
+
+        }
     }
 }
