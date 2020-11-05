@@ -69,10 +69,16 @@ namespace CodingAssessment.Review
             }
             return _people;
         }
-
+        /*simplify the function and get BOB older then 30
+          * DateTime.Now.Subtract does not give accurate result so use AddYears 
+          */
         private IEnumerable<People> GetBobs(bool olderThan30)
         {
-            return olderThan30 ? _people.Where(x => x.Name == "Bob" && x.DOB >= DateTime.Now.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _people.Where(x => x.Name == "Bob");
+            var query = _people.Where(x => x.Name == "Bob");
+            if (olderThan30)/* DateTime.Now.Subtract do not provide accurate result*/
+                query.Where(x => x.DOB >= DateTime.Now.AddYears(-30));
+
+            return query.AsEnumerable<People>();
         }
 
         public string GetMarried(People p, string lastName)
