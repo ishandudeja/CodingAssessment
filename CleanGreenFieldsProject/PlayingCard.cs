@@ -54,5 +54,34 @@ namespace CleanGreenFieldsProject
                 index++;
             }
         }
+
+        public List<Card> GetYou3Cards()
+        {
+            _CompCards = _Deck.Take(3).ToList();
+            return _Deck.Skip(_cardPick).Take(3).ToList();
+
+        }
+
+        public bool GetWinResult(Card card)
+        {
+            bool result = true;
+
+            foreach (Card compCard in _CompCards)
+            {
+                if (compCard.Value > card.Value)
+                {
+                    Console.WriteLine("You lose Camputer has {0} of {1}", compCard.CardFace.ToString(), compCard.Suit.ToString());
+                    result = false;
+                    break;
+                }
+            }
+            if (result)
+            {
+                Console.WriteLine("You Win");
+            }
+
+            return result;
+
+        }
     }
 }
