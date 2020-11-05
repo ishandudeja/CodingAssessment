@@ -7,9 +7,11 @@ namespace Tests
     public class UnitTest1
     {
         [Fact]
-        public void Test1()
+        public void TestPeopleCount()
         {
-            true.Should().BeTrue();
+            BirthingUnit birthingUnit = new BirthingUnit();
+            var people = birthingUnit.GetPeople(5);
+            Assert.Equal(5, people.Count);
         }
     }
 }
