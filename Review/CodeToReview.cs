@@ -6,7 +6,8 @@ namespace CodingAssessment.Review
 {
     public class People
     {
-        private static readonly DateTimeOffset Under16 = DateTimeOffset.UtcNow.AddYears(-15);
+        /* readonly variable should be initialise inside the constructor */
+        private const DateTimeOffset Under16 = DateTimeOffset.UtcNow.AddYears(-15);
         public string Name { get; private set; }
         public DateTimeOffset DOB { get; private set; }
 
