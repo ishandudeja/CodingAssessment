@@ -80,17 +80,18 @@ namespace CodingAssessment.Review
 
             return query.AsEnumerable<People>();
         }
-
-        public string GetMarried(People p, string lastName)
+        /* parimeter name should be named accouding to language conventions */
+        public string GetMarried(People person, string lastName)
         {
             if (lastName.Contains("test"))
-                return p.Name;
-            if ((p.Name.Length + lastName).Length > 255)
+                return person.Name;
+            /*refactor the condition*/
+            string fullName = person.Name + " " + lastName;
+            if (fullName.Length > 255)
             {
-                (p.Name + " " + lastName).Substring(0, 255);
+                fullName = fullName.Substring(0, 255);
             }
-
-            return p.Name + " " + lastName;
+            return fullName;
         }
     }
 }
