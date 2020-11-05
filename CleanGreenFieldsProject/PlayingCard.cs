@@ -44,5 +44,15 @@ namespace CleanGreenFieldsProject
 
             }
         }
+
+        public void ShowCards(List<Card> Cards)
+        {
+            int index = 1;
+            foreach (Card card in Cards)
+            {
+                Console.WriteLine("Index {2} :{0} of {1} ", card.CardFace.ToString(), card.Suit.ToString(), index);
+                index++;
+            }
+        }
     }
 }
