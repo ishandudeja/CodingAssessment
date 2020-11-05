@@ -41,14 +41,18 @@ namespace CodingAssessment.Review
         /// <returns>List<object></returns>
         public List<People> GetPeople(int i)
         {
+            /*Rendom should initiale once*/
+            var random = new Random();
             for (int j = 0; j < i; j++)
             {
                 try
                 {
                     // Creates a dandon Name
                     string name = string.Empty;
-                    var random = new Random();
-                    if (random.Next(0, 1) == 0) {
+
+                    /* Next(0,1) return 0 allway so MaxValue should be 2 */
+                    if (random.Next(2) == 0)
+                    {
                         name = "Bob";
                     }
                     else {
