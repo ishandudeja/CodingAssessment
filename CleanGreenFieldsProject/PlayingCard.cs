@@ -25,5 +25,24 @@ namespace CleanGreenFieldsProject
 
             return _Deck;
         }
+
+
+        public void Shuffle()
+        {
+
+            Random rand = new Random();
+
+            for (int i = 0; i < _Deck.Count; i++)
+            {
+                // Random for remaining positions. 
+                int r = i + rand.Next(_Deck.Count - i);
+
+                //swapping the elements 
+                Card temp = _Deck[r];
+                _Deck[r] = _Deck[i];
+                _Deck[i] = temp;
+
+            }
+        }
     }
 }
